@@ -1,0 +1,9 @@
+title: thesis_6U_quat_RWMTQ_betterest_w_all_20240819-142617
+al: 1.0
+kap: -21
+bet: 2.0
+dt: 1
+ctrl conv time: (69.0, 4440.0, 2254.0)
+ctrl tc: 137.95493932398975
+last 100 ctrlang err mean: 0.6843469113725591
+last 100 ctrlang err max: 1.0869659078271012

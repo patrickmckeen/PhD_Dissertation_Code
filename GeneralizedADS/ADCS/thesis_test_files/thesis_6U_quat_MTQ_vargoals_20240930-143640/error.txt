@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/site-packages/sat_ADCS_estimation/attitude_test_estimators.py", line 96, in update
+    Kk = scipy.linalg.solve((sens_cov+Hk.T@pc@Hk),(pc@Hk).T,assume_a='pos')
+  File "/usr/local/lib/python3.10/site-packages/scipy/linalg/_basic.py", line 151, in solve
+    a1 = atleast_2d(_asarray_validated(a, check_finite=check_finite))
+  File "/usr/local/lib/python3.10/site-packages/scipy/_lib/_util.py", line 306, in _asarray_validated
+    a = toarray(a)
+  File "/usr/local/lib/python3.10/site-packages/numpy/lib/function_base.py", line 630, in asarray_chkfinite
+    raise ValueError(
+ValueError: array must not contain infs or NaNs
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/patrickmckeen/Documents/GitHub/McKeenADS/GeneralizedADS/ADCS/run_sim.py", line 1240, in run_sim_wrapper
+    run_sim(orb_file,state0,copy.deepcopy(real_sat),adcsys,base_title,tf=tf,dt = dt,rand=False,plot_3D_err = False)
+  File "/Users/patrickmckeen/Documents/GitHub/McKeenADS/GeneralizedADS/ADCS/run_sim.py", line 224, in run_sim
+    control = adcsys.ADCS_update(j2000_0+(t-t0)*sec2cent,sens,gps_sens,state_truth = state,first_ADCS = first_ADCS)
+  File "/Users/patrickmckeen/Documents/GitHub/McKeenADS/GeneralizedADS/ADCS/src/sat_ADCS_ADCS/ADCS.py", line 511, in ADCS_update
+    self.estimation_update(sens,t,self.current_ctrl,truth = state_truth)
+  File "/Users/patrickmckeen/Documents/GitHub/McKeenADS/GeneralizedADS/ADCS/src/sat_ADCS_ADCS/ADCS.py", line 646, in estimation_update
+    self.estimator.update(control,sens,self.orbit_estimator.current_state_estimate,truth = truth)
+  File "/usr/local/lib/python3.10/site-packages/sat_ADCS_estimation/attitude_test_estimators.py", line 99, in update
+    raise np.linalg.LinAlgError('Matrix is singular. (probably)')
+numpy.linalg.LinAlgError: Matrix is singular. (probably)

@@ -1,0 +1,9 @@
+title: thesis_6U_quat_RWMTQ_betterest_dist_initial_off_20240819-172653
+al: 0.001
+kap: 0
+bet: 2.0
+dt: 1
+ctrl conv time: (814.0, nan, nan)
+ctrl tc: -171.8648071944929
+last 100 ctrlang err mean: 5.298762572036631
+last 100 ctrlang err max: 5.577446033257304

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/Users/patrickmckeen/Documents/GitHub/McKeenADS/GeneralizedADS/ADCS/run_sim.py", line 1240, in run_sim_wrapper
+    run_sim(orb_file,state0,copy.deepcopy(real_sat),adcsys,base_title,tf=tf,dt = dt,rand=False,plot_3D_err = False)
+  File "/Users/patrickmckeen/Documents/GitHub/McKeenADS/GeneralizedADS/ADCS/run_sim.py", line 224, in run_sim
+    control = adcsys.ADCS_update(j2000_0+(t-t0)*sec2cent,sens,gps_sens,state_truth = state,first_ADCS = first_ADCS)
+  File "/Users/patrickmckeen/Documents/GitHub/McKeenADS/GeneralizedADS/ADCS/src/sat_ADCS_ADCS/ADCS.py", line 575, in ADCS_update
+    self.command = self.actuation(t,sens)
+  File "/Users/patrickmckeen/Documents/GitHub/McKeenADS/GeneralizedADS/ADCS/src/sat_ADCS_ADCS/ADCS.py", line 700, in actuation
+    [psp1,pcp1,pgp1,pmp1,ptp1] = self.current_trajectory.info_nearest_to_time(self.next_os.J2000)
+  File "/Users/patrickmckeen/Documents/GitHub/McKeenADS/GeneralizedADS/ADCS/src/sat_ADCS_ADCS/trajectory.py", line 215, in info_nearest_to_time
+    raise ValueError("time outside of span")
+ValueError: time outside of span

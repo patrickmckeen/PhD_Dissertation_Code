@@ -1,0 +1,9 @@
+title: thesis_6U_quat_RWMTQ_est_bias_initial_off_20240819-042236
+al: 0.001
+kap: 0
+bet: 2.0
+dt: 1
+ctrl conv time: (78.0, nan, nan)
+ctrl tc: -14.392224143003617
+last 100 ctrlang err mean: 99.77493664216297
+last 100 ctrlang err max: 109.89230819195569

@@ -1,0 +1,9 @@
+title: thesis_6U_quat_RWMTQ_betterest_w_all_eclipse_20240819-182702
+al: 0.001
+kap: 0
+bet: 2.0
+dt: 1
+ctrl conv time: (69.0, 4440.0, 2254.0)
+ctrl tc: 170.59046900655846
+last 100 ctrlang err mean: 0.6873801467337759
+last 100 ctrlang err max: 1.0930054816907149

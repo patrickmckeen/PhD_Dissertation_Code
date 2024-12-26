@@ -1,0 +1,9 @@
+title: thesis_6U_quat_RWMTQ_betterest_bias_initial_off_20240819-163914
+al: 0.001
+kap: 0
+bet: 2.0
+dt: 1
+ctrl conv time: (nan, nan, nan)
+ctrl tc: nan
+last 100 ctrlang err mean: 96.76129612208999
+last 100 ctrlang err max: 177.12673451030744

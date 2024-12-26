@@ -1,0 +1,36 @@
+Other ideas:
+- in control (especially magnetic control), what is the effect on the method used to limit the desired command to what is possible based on actuator limits? Common method is saturating by axis (limiting each plant individually)--this minimizes vector distance between desired and commanded control, but the vectors likely have different angles. What about multiplying the desired control by a factor k, 0<k<1, such that k*command is within bounds on each axis? How does this perform compared to normal saturation?
+- using spherical harmonics to approximate effect angle has on drag and SRP. Likely not needed in most cases, as it only deals with EKF trying to converge over a "corner" where faces go from subjected to SRP/drag vs not--small differences, computationally complex, and only relevant during convergence or small edge cases. Could be useful for things like solar sails though.
+- CMG support
+- support earth horizon sensors and star cameras/trackers --  see method of model in Crassidis UKF paper
+- improve GPS noise model
+- deal with assumption that RW momentum measurement is unbiased, allow for RW momentum sensors to be selected as part of "which" in sensor value polling
+- thresholding on sun sensors to ignore values that are too low, assume they are not seeing the sun
+- better understanding of how sun sensors have noise
+- better simulation of how sensors are sampled at different time points
+xxxxxxxxx QUEST + gryo reading initialization
+xxxxxxx add robust versions of Kalman filter, square root filter, etc.
+- J estimation
+- maneuveres to get accuracy up--like spinning around.
+- when doing things like bdot or any magnetic control, smart combination of magnetic model and snesor data.
+- scaling of inputs to KF so they are all in the same scale range.
+- think about where integratino noise is added in UKF--what it says about where the changes should be made in the sim.
+- penumbra effect on sun sensors
+- general disturbance with one for body frame and one for world frame
+- wisniewski that allows for negative q0--choosing sign so that s is minimized instead of q
+- test wisniewski disturbance gencontrol NOT accounting for GG (force gen disturbance to include GG)
+- clever weightings and cost functions for planner: weighting stability using CTG derivatives, caring about 1st/2nd derivative/etc of control cost over time instead of just raw cost, somethign to keep control pattern to "nice" patterns--like square waves/sawtooth/maybe sinusoids--not very noisy (maybe PSD? Idk. it's not just no sharp changes bc square is fine, and it's not like only straight lines, but it's like--they planned control shouldn't look like a cross between a squiggle and random walk? or like a signature?)
+
+
+
+future work:
+- speed up, reduce compuational complexity
+-extend hogan & schaubs 2015 constant-desat RW+MTQ algorithm to allow for RW's with less than rank 3
+- level of accuracy required for each part--trade off in precision and cost of precalculation_
+- varying time horizons and corrections
+- tie integration error/cov to magnitude of control or change?. genreally better integration estimate.
+
+-study how differing degradation of a sun sensor pair can be modelled by bias over time.--and if it's effective. need slow changing bias to track very slow degradation. but if the satellite spins around during a manuever, the change between the degradation of the panels on one side vs the other means a much quicker jump in 'bias'
+
+future work planner:
+- better decisions about TVLQR spans, varying goals, etc.

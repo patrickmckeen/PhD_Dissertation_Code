@@ -1,0 +1,9 @@
+title: thesis_6U_quat_MTQ_varECIgoals_LQR_20240916-180151
+al: 0.001
+kap: 0.0
+bet: 2.0
+dt: 1
+ctrl conv time: (nan, nan, nan)
+ctrl tc: nan
+last 100 ctrlang err mean: 0.6416829129990258
+last 100 ctrlang err max: 0.6900970374418899

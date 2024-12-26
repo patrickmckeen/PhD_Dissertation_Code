@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/sat_ADCS_ADCS/ADCS.py
+src/sat_ADCS_ADCS/ADCS_Bx.py
+src/sat_ADCS_ADCS/__init__.py
+src/sat_ADCS_ADCS/old_adcs.py
+src/sat_ADCS_ADCS/trajectory.py
+src/sat_ADCS_ADCS.egg-info/PKG-INFO
+src/sat_ADCS_ADCS.egg-info/SOURCES.txt
+src/sat_ADCS_ADCS.egg-info/dependency_links.txt
+src/sat_ADCS_ADCS.egg-info/top_level.txt

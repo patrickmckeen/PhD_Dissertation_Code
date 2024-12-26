@@ -1,0 +1,96 @@
+TODO:
+- make orbit generation faster
+- check sat copy in UKF/SRUKF is working and the sats that correspond to sigma points with different biases,etc aren't affecting each other or the main sat.
+- C++?
+- build easier way to setup cases and tests
+- DOCUMENTATION
+- CLEAN UP
+- more sat setup in methods, especially for UKF
+- updating RW measurement parameters from estimate, like done for sensors
+- maximum/minimum biases for sun sensors. other sensors?
+- justify sensor error values
+- better way to pull/put sensor values and biases and indices from vectors
+- "which_sensors" --how is it affected by sensors that have an output that is not a scalar?
+- better sensor mangagement overall
+- state as objects
+- UKF with sun sensors
+- can there be actuators with non-symmetric limits? IE, min ~= -max
+- torque warning is in "clean" torque now--doesn't make sense if bias puts it over, etc.
+- sun vec to be sun to satellite (not sun to earth) so don't have to subtract R.
+- update centroid vectors as from COM if sat has nonzero COM--or at least clarify this.
+- deal with sensors, etc that have 0 noise. Too many sigma points!
+- how reaction wheels are dealt with when using "which_sensors"
+- pickling bug for satellites. WHAT THE FUCK IS USING MEMORYVIEW??? NUMPY? THE WAY I MADE THE CLASS??
+- update jacobians, etc. in satellite for CG5 integration option -- or remove it.
+- sensor scales -- needs to be tested at the very least
+- fix quat as vec and not quat as vec
+- better ways to deal with sensors that are unused (like sun sensors in eclipse) and their effect on covariance, especially in eclipse.
+- b-dot control for >3 MTMs and >3 MTQs (or under rank, too.)
+- speed up dynamics (move RW J and axes calc to setup, etc.)
+- disturbance control tests with actuator noise (done for Lovera, not for Wisniewski or Wie?)
+- easy way to save data from simulation in a structure that allows easy pulling of time series of each data (and in each frame)
+-include propulsion in orbit propagation
+- redundancy between ADCS os-storing and estimator os-storing
+- trheading for preclaculation and planning for real-world use
+- mechanism to remove acutators that have
+- improve reset sat in control_mode (and ADCS?) to match the initializer
+- switch conrol mode arg order so sat comes first and gain can have default arguments
+- deal with how state_goal is described and queried, especially in the ADCS class
+
+TODO tests:
+- more RW new_tests_marker
+- full tests on the wahbas svd
+- tests for sun sensors respecting eclipse
+- sensor scales
+- test numerical integration
+- check sat copy in UKF/SRUKF is working and the sats that correspond to sigma points with different biases,etc aren't affecting each other or the main sat.
+- test quatset-choosing goals
+- tests on control laws
+- control law reset sat
+- tets on ADCS governing
+  - test Lmat, Rmat (in quat helpers)
+  - test reduced state err, jac, hessian
+  - all of it
+- test all control modes/laws, especially bdot, bdot_ekf, and those that involve the trajectory
+- control laws for more than 3 MTQs, magic, etc.
+-precalculation and deciding trajectory length,etc needs to be cleaned up.
+
+
+
+FOr Chris:
+overall:
+- metrics to measure how good a filter is
+--max error after convergence, average error after convergence (STEADY STATE ERROR), time to convergence--time constant--exponential fit?
+--rise time from E59--percentage as opposed to absolute value--but both are totally valid.
+--average over trials, with different initial conditions
+--example plot annotated with examples of how steady state vs convergence is.
+- how to compare to published algorithms that don't provide implementation (or always clear test case data)
+-- email Crassidis/PI/student directly. Try to recreate.
+-- But before you do that, check with Kerri.
+-- or give up and just know it looks different.
+- better graphics
+- space vs robotics
+
+about UKF behavior:
+- should covariance slowly decrease from initial values? Seems like it should, but it decreases much more quickly than the estimate converges.
+-- if filter within sigma points of filter--measurement covariance tight fused with wide state covariance, so gets smaller fast.
+- "seesaw behavior" -- gets close on vel, then that gets worse while position gets better, etc.
+-- due to coupled states.
+-- model N-1 states as known perfectly and see if the weird convergence rate has on the one state--do it one by one.
+- in UKF, why does setting process noise to actual process noise not work? for random variables like biases
+
+Implementation:
+- how to estimate integration covariances for UKF, all covariances for EKF.
+- integration/process noise as separate vector in UKF or added to covariance--added twice??
+- alpha, kappa, beta
+- solve vs inverse
+- cholesky vs eig
+- quaternion vectorization, MRP, etc.--does method matter?
+???????????- torques vs sensors
+
+UKF/EKF options/problems:
+- ignore sunsensors in eclipse or use? Could help hone on bias...
+- UKF when in some sigma-point states you wouldn't get readings from some sensors?
+--particle filter handles this better! jack up uncertainty.
+-- there is some information in knowing its not in the measurable zone. interesting to pull it out.
+-- future work. use your workaround for now.

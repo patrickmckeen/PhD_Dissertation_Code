@@ -1,0 +1,9 @@
+title: thesis_6U_quat_RWMTQ_est_w_all_20240819-020439
+al: 1.0
+kap: -21
+bet: 2.0
+dt: 1
+ctrl conv time: (69.0, 4402.0, 2235.0)
+ctrl tc: 164.55893319379234
+last 100 ctrlang err mean: 0.6541391348154678
+last 100 ctrlang err max: 1.0211997079792388

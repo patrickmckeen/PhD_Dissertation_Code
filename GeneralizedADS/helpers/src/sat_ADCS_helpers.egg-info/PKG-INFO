@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: sat_ADCS_helpers
+Version: 0.0.1
+Summary: helper functions for satellite ADCS
+Author-email: Patrick McKeen <pmckeen@mit.edu>
+Project-URL: Homepage, nope.com
+Project-URL: Bug Tracker, nope.com
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: Unknown/Private
+Classifier: Operating System :: Unknown
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Example Package
+
+This is a simple example package. You can use
+[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content.

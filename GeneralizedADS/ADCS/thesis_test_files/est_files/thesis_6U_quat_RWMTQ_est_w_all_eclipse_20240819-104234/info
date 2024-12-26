@@ -1,0 +1,9 @@
+title: thesis_6U_quat_RWMTQ_est_w_all_eclipse_20240819-104234
+al: 0.001
+kap: 0
+bet: 2.0
+dt: 1
+ctrl conv time: (69.0, 4402.0, 2235.0)
+ctrl tc: 284.20870072228337
+last 100 ctrlang err mean: 0.6542672248278234
+last 100 ctrlang err max: 1.0231088899115548
